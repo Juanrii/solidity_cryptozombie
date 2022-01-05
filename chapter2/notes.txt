@@ -1,0 +1,43 @@
+nuevos tipos de datos:
+
+# mapping y address
+
+direccion de cryptoZombies = 0x0cE446255506E92DF41614C46F1d6df9Cc969183
+
+
+Una direccion esta asociada a un unico usuario especifico
+o aun contrato inteligente
+
+
+Un mapeo es una asociacion valor-clave para guardar y ver datos.
+Osea un array asociativo.
+
+mapping(_KeyType => _ValueType)
+
+// Para una aplicación financial, guardamos un uint con el balance de su cuenta:
+mapping (address => uint) public accountBalance;
+
+// O podría usarse para guardar / ver los usuarios basados en ese userId
+mapping (uint => string) userIdToName;
+
+-------------------------------------------------
+
+# msg.sender
+
+es una variable global que hace referencia a la direccion de la persona
+o el contrato inteligente que han llamado a esa funcion
+
+ej:
+
+    mapping (address => uint) favoriteNumber;
+
+    function setMyNumber(uint _myNumber) public {
+        // Actualiza el mapeo 'favoriteNumber' para guardar
+        // '_myNumber' dentro de 'msg.sender'
+        favoriteNumber[msg.sender] = _myNumber;
+    }
+
+    function whatIsMyNumber() public view returns (uint) {
+        // sera 0 si el emisor no ha llamado a 'setMyNumber' aun
+        return favoriteNumber[msg.sender];
+    }

@@ -1,0 +1,7 @@
+// pragma solidity 
+// contrato ZombieFactory
+// structura Zombie -> name, dna
+// funciones:
+// _createZombie(name, dna)
+// _generateRandomDna(string)
+// createRandomZombie(string)
